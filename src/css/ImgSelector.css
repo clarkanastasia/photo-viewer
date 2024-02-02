@@ -1,0 +1,11 @@
+.imgContainer{
+    display: flex;
+    gap: 5px;  
+    flex-wrap: wrap;
+}
+
+
+.thumbnail {
+    flex: 25%; 
+    width: 25%;
+    }
