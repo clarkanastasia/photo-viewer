@@ -1,9 +1,9 @@
-import '../css/PhotoViewer.css.css'
+import '../css/PhotoViewer.css'
 
-export function PhotoViewer(){
+export function PhotoViewer(props:any){
     return(
         <div>
-            <img src="https://picsum.photos/id/237/1000/600" alt="placeholder cover image" className="coverImg"/>
+            <img src={props.src} alt="placeholder cover image" className="coverImg"/>
         </div>
     );
 }
