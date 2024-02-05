@@ -1,16 +1,11 @@
 import '../css/ImgSelector.css';
-import {useState} from 'react';
 
-export function ImgSelector(){
+export default function ImgSelector(props : any){
 
     const brokenImages = [
         1, 24, 32, 36, 44, 47
     ];
-    const urls = getImageUrls();
-
-    const [selectedUrl, setSelectedUrl] = useState("");
-
-    function getImageUrls() {
+    const getImageUrls = () =>{
         const urls = [];
     
         for (let i = 0; i < 50; i++) {
@@ -21,20 +16,20 @@ export function ImgSelector(){
         }
         return urls;
     }
-    const handleClick = (url: any) => {
-        setSelectedUrl(url)
-    }
+
+    const urls = getImageUrls();
+    
     return(
         <div>
             <h2>Select Your Photo</h2>
-            <h3>The current url is: {selectedUrl}</h3>
+            <h3>The current url is: {props.selectedUrl}</h3>
             <div className="imgContainer">
                 {urls.map((url, index) => (
                     <img
                     key= {index} 
                     src= {url}
-                    className= {`thumbnail ${selectedUrl === url? 'border': ''}`}
-                    onClick={() => handleClick(url)}
+                    className= {`thumbnail ${props.selectedUrl === url? 'border': ''}`}
+                    onClick={()=> props.onClick(url)}
                     />
                 ))}
             </div>
