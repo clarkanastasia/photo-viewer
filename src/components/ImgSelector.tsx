@@ -1,4 +1,5 @@
 import '../css/ImgSelector.css';
+import {useState} from 'react';
 
 export function ImgSelector(){
 
@@ -6,7 +7,9 @@ export function ImgSelector(){
         1, 24, 32, 36, 44, 47
     ];
     const urls = getImageUrls();
-    
+
+    const [selectedUrl, setSelectedUrl] = useState("");
+
     function getImageUrls() {
         const urls = [];
     
@@ -18,17 +21,22 @@ export function ImgSelector(){
         }
         return urls;
     }
-
+    const handleClick = (url: any) => {
+        setSelectedUrl(url)
+    }
     return(
         <div>
             <h2>Select Your Photo</h2>
+            <h3>The current url is: {selectedUrl}</h3>
             <div className="imgContainer">
-                {urls.map((url) =>
-                    <img 
-                    src={url}
-                    className="thumbnail" 
+                {urls.map((url, index) => (
+                    <img
+                    key= {index} 
+                    src= {url}
+                    className= {`thumbnail ${selectedUrl === url? 'border': ''}`}
+                    onClick={() => handleClick(url)}
                     />
-                )}
+                ))}
             </div>
         </div>
     )
