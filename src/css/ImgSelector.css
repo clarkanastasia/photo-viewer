@@ -4,8 +4,11 @@
     flex-wrap: wrap;
 }
 
-
 .thumbnail {
     flex: 25%; 
     width: 25%;
     }
+
+.border{
+    border: 5px solid red;
+}
