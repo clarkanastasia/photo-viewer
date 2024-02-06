@@ -26,6 +26,7 @@ export default function ImgSelector(props : any){
             <div className="imgContainer">
                 {urls.map((url, index) => (
                     <img
+                    alt={`Image ${index+1}`}
                     key= {index} 
                     src= {url}
                     className= {`thumbnail ${props.selectedUrl === url? 'border': ''}`}
